@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MissWine – Home</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+        }
+
+        /* SCHERMATE (HOME, TEORÍA, PRÁCTICA, BODEGA, RECUERDOS) */
+        .screen {
+            display: none;
+        }
+        .screen-active {
+            display: block;
+        }
+
+        /* HEADER VERDE */
+        .header {
+            background-color: #4CAF50;
+            padding: 18px;
+            text-align: center;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        /* MESSAGGIO DI MATTEO */
+        .mensaje {
+            padding: 16px;
+            margin: 12px;
+            background-color: #fff7e6;
+            border-left: 5px solid #ff9800;
+            border-radius: 6px;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+
+        .firma {
+            display: block;
+            text-align: left;
+            width: 100%;
+            margin-top: 8px;
+            font-weight: bold;
+            padding-left: 5px;
+        }
+
+        /* PULSANTI HOME */
+        .botonera {
+            padding: 20px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        .b1 { background-color: #e91e63; } /* Teoría */
+        .b2 { background-color: #3f51b5; } /* Práctica */
+        .b3 { background-color: #009688; } /* Bodega */
+        .b4 { background-color: #ff5722; } /* Recuerdos del Vino */
+
+        /* SUBHEADER DELLE PAGINE INTERNE */
+        .subheader {
+            display: flex;
+            align-items: center;
+            padding: 10px 12px;
+            background-color: #f0f0f0;
+            border-bottom: 1px solid #ddd;
+            font-size: 18px;
+        }
+
+        .back-btn {
+            border: none;
+            background: none;
+            font-size: 18px;
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        .subheader-title {
+            font-weight: bold;
+        }
+
+        /* CONTENUTO INTERNO PAGINE */
+        .content {
+            padding: 16px;
+        }
+
+        .content p {
+            margin-top: 0;
+        }
+
+        /* CARDS TEORÍA */
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            cursor: pointer;
+        }
+
+        /* FOTO DELLE CARD: grandi ma non sgranate, centrate */
+        .card-img {
+            display: block;
+            width: 100%;
+            max-width: 360px;     /* dimensione massima immagine */
+            height: auto;         /* mantiene le proporzioni */
+            margin: 12px auto 6px;
+            object-fit: contain;  /* NON taglia, NON zooma male */
+            border-radius: 8px;
+        }
+
+        /* TITOLO CARD: sempre al centro */
+        .card-title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 4px;
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 🔵 SCHERMATA HOME -->
+    <div id="screen-home" class="screen screen-active">
+        <div class="header">MissWine 🍷</div>
+
+        <div class="mensaje">
+            En cada aprendizaje, en cada copa, estaré a tu lado.
+            <div class="firma">– Matteo</div>
+        </div>
+
+        <div class="botonera">
+            <a href="#" class="btn b1" onclick="showScreen('teoria')">📘 Teoría</a>
+            <a href="#" class="btn b2" onclick="showScreen('practica')">🧪 Práctica</a>
+            <a href="#" class="btn b3" onclick="showScreen('bodega')">🍷 Bodega</a>
+            <a href="#" class="btn b4" onclick="showScreen('recuerdos')">❤️ Recuerdos del Vino</a>
+        </div>
+    </div>
+
+    <!-- 🔴 SCHERMATA TEORÍA -->
+    <div id="screen-teoria" class="screen">
+        <div class="header">MissWine 🍷</div>
+
+        <div class="subheader">
+            <button class="back-btn" onclick="showScreen('home')">←</button>
+            <span class="subheader-title">Teoría</span>
+        </div>
+
+        <div class="content">
+
+            <!-- VINOS -->
+            <div class="card" onclick="showScreen('vinos')">
+                <img src="img/vinos.jpg" class="card-img" alt="Vinos">
+                <div class="card-title">🍷 Vinos</div>
+            </div>
+
+            <!-- ESPUMOSOS -->
+            <div class="card" onclick="showScreen('espumosos')">
+                <img src="img/espumosos.jpg" class="card-img" alt="Espumosos">
+                <div class="card-title">🥂 Espumosos</div>
+            </div>
+
+            <!-- UVAS -->
+            <div class="card" onclick="showScreen('uvas')">
+                <img src="img/uvas.jpg" class="card-img" alt="Uvas del mundo">
+                <div class="card-title">🍇 Uvas del mundo</div>
+            </div>
+
+            <!-- TÉCNICAS -->
+            <div class="card" onclick="showScreen('tecnicas')">
+                <img src="img/tecnicas.jpg" class="card-img" alt="Técnicas profesionales">
+                <div class="card-title">🧪 Técnicas profesionales</div>
+            </div>
+
+            <!-- PSICOLOGÍA -->
+            <div class="card" onclick="showScreen('psicologia')">
+                <img src="img/psicologia.jpg" class="card-img" alt="Psicología del vino">
+                <div class="card-title">🧠 Psicología del vino</div>
+            </div>
+
+            <!-- EXTRA -->
+            <div class="card" onclick="showScreen('extra')">
+                <img src="img/extra.jpg" class="card-img" alt="Extra">
+                <div class="card-title">➕ Extra</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 🟣 SCHERMATA PRÁCTICA -->
+    <div id="screen-practica" class="screen">
+        <div class="header">MissWine 🍷</div>
+
+        <div class="subheader">
+            <button class="back-btn" onclick="showScreen('home')">←</button>
+            <span class="subheader-title">Práctica</span>
+        </div>
+
+        <div class="content">
+            <p>
+                Aquí podrás añadir ejercicios de cata, retos, prácticas… 
+                De momento es una página vacía para que veas que la navegación funciona.
+            </p>
+        </div>
+    </div>
+
+    <!-- 🟢 SCHERMATA BODEGA -->
+    <div id="screen-bodega" class="screen">
+        <div class="header">MissWine 🍷</div>
+
+        <div class="subheader">
+            <button class="back-btn" onclick="showScreen('home')">←</button>
+            <span class="subheader-title">Bodega</span>
+        </div>
+
+        <div class="content">
+            <p>
+                Aquí irá la lista de vinos, fichas, notas y el buscador para comparar en Internet.
+            </p>
+        </div>
+    </div>
+
+    <!-- 🧡 SCHERMATA RECUERDOS DEL VINO -->
+    <div id="screen-recuerdos" class="screen">
+        <div class="header">MissWine 🍷</div>
+
+        <div class="subheader">
+            <button class="back-btn" onclick="showScreen('home')">←</button>
+            <span class="subheader-title">Recuerdos del Vino</span>
+        </div>
+
+        <div class="content">
+            <p>
+                Aquí construiremos el álbum: momentos, fotos y recuerdos especiales.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function showScreen(name) {
+            const screens = document.querySelectorAll('.screen');
+            screens.forEach(s => s.classList.remove('screen-active'));
+
+            if (name === 'home') document.getElementById('screen-home').classList.add('screen-active');
+            if (name === 'teoria') document.getElementById('screen-teoria').classList.add('screen-active');
+            if (name === 'practica') document.getElementById('screen-practica').classList.add('screen-active');
+            if (name === 'bodega') document.getElementById('screen-bodega').classList.add('screen-active');
+            if (name === 'recuerdos') document.getElementById('screen-recuerdos').classList.add('screen-active');
+        }
+    </script>
+
+</body>
+</html>
